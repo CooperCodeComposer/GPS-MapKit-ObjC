@@ -13,6 +13,8 @@
 		EDEE65EE1CFCFA6700AB5583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDEE65EC1CFCFA6700AB5583 /* Main.storyboard */; };
 		EDEE65F01CFCFA6700AB5583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDEE65EF1CFCFA6700AB5583 /* Assets.xcassets */; };
 		EDEE65F31CFCFA6700AB5583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDEE65F11CFCFA6700AB5583 /* LaunchScreen.storyboard */; };
+		EDEE65FB1CFCFE6000AB5583 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEE65FA1CFCFE6000AB5583 /* CoreLocation.framework */; };
+		EDEE65FE1CFD0D8500AB5583 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE65FD1CFD0D8500AB5583 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		EDEE65EF1CFCFA6700AB5583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDEE65F21CFCFA6700AB5583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDEE65F41CFCFA6700AB5583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDEE65FA1CFCFE6000AB5583 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EDEE65FC1CFD0D8500AB5583 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		EDEE65FD1CFD0D8500AB5583 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEE65FB1CFCFE6000AB5583 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +48,7 @@
 		EDEE65D71CFCFA6700AB5583 = {
 			isa = PBXGroup;
 			children = (
+				EDEE65FA1CFCFE6000AB5583 /* CoreLocation.framework */,
 				EDEE65E21CFCFA6700AB5583 /* GPS-MapKit-ObjC */,
 				EDEE65E11CFCFA6700AB5583 /* Products */,
 			);
@@ -62,6 +69,8 @@
 				EDEE65E71CFCFA6700AB5583 /* AppDelegate.m */,
 				EDEE65E91CFCFA6700AB5583 /* ViewController.h */,
 				EDEE65EA1CFCFA6700AB5583 /* ViewController.m */,
+				EDEE65FC1CFD0D8500AB5583 /* TableViewController.h */,
+				EDEE65FD1CFD0D8500AB5583 /* TableViewController.m */,
 				EDEE65EC1CFCFA6700AB5583 /* Main.storyboard */,
 				EDEE65EF1CFCFA6700AB5583 /* Assets.xcassets */,
 				EDEE65F11CFCFA6700AB5583 /* LaunchScreen.storyboard */,
@@ -152,6 +161,7 @@
 				EDEE65EB1CFCFA6700AB5583 /* ViewController.m in Sources */,
 				EDEE65E81CFCFA6700AB5583 /* AppDelegate.m in Sources */,
 				EDEE65E51CFCFA6700AB5583 /* main.m in Sources */,
+				EDEE65FE1CFD0D8500AB5583 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +310,7 @@
 				EDEE65F91CFCFA6700AB5583 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

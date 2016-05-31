@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>  
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CLLocationManagerDelegate>
+{
+    UILabel *xLocLabel;
+    UILabel *yLocLabel;
+    UILabel *headingLabel;
+}
 
+@property() CLLocationManager *manager;
+@property() CLLocationDirection currentHeading;
 
 @end
 

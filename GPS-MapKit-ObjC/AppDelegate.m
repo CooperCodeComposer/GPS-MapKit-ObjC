@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -16,7 +17,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    // setup view controllers
+    
+    self.vc1 = [[ViewController alloc] initWithNibName:nil bundle:nil];
+    self.vc1.title = @"Location Data";
+    self.vc1.view.backgroundColor = [UIColor whiteColor];
+//    self.vc1.tabBarItem.image = [UIImage imageNamed:@"trumpet"];
+    
+    self.vc2 = [[TableViewController alloc] initWithNibName:nil bundle:nil];
+    self.vc2.title = @"Resturants";
+
+    
+    // setup tab bar
+    self.tab = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
+    
+    // style the tab bar
+    self.tabBar = self.tab.tabBar;
+    self.tabBar.barStyle = UIBarStyleBlack;
+    
+    self.tab.viewControllers = @[self.vc1, self.vc2];
+    
+    self.window.rootViewController = self.tab;
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
