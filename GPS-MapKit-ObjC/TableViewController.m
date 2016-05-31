@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self downloadJsonGCD];
+    
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -29,16 +33,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Data setup methods
+-(void)downloadJsonGCD
+{
+    // start pinwheel
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSString *urlString = @"https://s3-us-west-2.amazonaws.com/uclaiosclass/resturants.json";
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        NSData *jsonData = [NSData dataWithContentsOfURL:url];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+             resturantsArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
+            
+         //   [self.tableView reloadData]; // need to reload table data
+            
+            NSLog(@"%@", resturantsArray);
+            
+            // stop the pinwheel
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
+        });
+        
+    });
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [resturantsArray count];
 }
 
 /*

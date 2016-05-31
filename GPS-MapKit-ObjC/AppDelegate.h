@@ -17,7 +17,7 @@
 @property (strong, nonatomic) UITabBar *tabBar;
 
 @property (strong, nonatomic) UIViewController *vc1;
-@property (strong, nonatomic) UITableViewController *vc2;
+@property (strong, nonatomic) TableViewController *vc2;
 
 
 @end

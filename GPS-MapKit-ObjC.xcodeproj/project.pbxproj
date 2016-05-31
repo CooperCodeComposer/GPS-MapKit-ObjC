@@ -15,6 +15,8 @@
 		EDEE65F31CFCFA6700AB5583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDEE65F11CFCFA6700AB5583 /* LaunchScreen.storyboard */; };
 		EDEE65FB1CFCFE6000AB5583 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEE65FA1CFCFE6000AB5583 /* CoreLocation.framework */; };
 		EDEE65FE1CFD0D8500AB5583 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE65FD1CFD0D8500AB5583 /* TableViewController.m */; };
+		EDEE66071CFE07CF00AB5583 /* CustomTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE66041CFE07CF00AB5583 /* CustomTableCell.xib */; };
+		EDEE66081CFE07CF00AB5583 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE66061CFE07CF00AB5583 /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		EDEE65FA1CFCFE6000AB5583 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EDEE65FC1CFD0D8500AB5583 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		EDEE65FD1CFD0D8500AB5583 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		EDEE66041CFE07CF00AB5583 /* CustomTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableCell.xib; sourceTree = "<group>"; };
+		EDEE66051CFE07CF00AB5583 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		EDEE66061CFE07CF00AB5583 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,9 @@
 		EDEE65E21CFCFA6700AB5583 /* GPS-MapKit-ObjC */ = {
 			isa = PBXGroup;
 			children = (
+				EDEE66041CFE07CF00AB5583 /* CustomTableCell.xib */,
+				EDEE66051CFE07CF00AB5583 /* CustomTableViewCell.h */,
+				EDEE66061CFE07CF00AB5583 /* CustomTableViewCell.m */,
 				EDEE65E61CFCFA6700AB5583 /* AppDelegate.h */,
 				EDEE65E71CFCFA6700AB5583 /* AppDelegate.m */,
 				EDEE65E91CFCFA6700AB5583 /* ViewController.h */,
@@ -148,6 +156,7 @@
 				EDEE65F31CFCFA6700AB5583 /* LaunchScreen.storyboard in Resources */,
 				EDEE65F01CFCFA6700AB5583 /* Assets.xcassets in Resources */,
 				EDEE65EE1CFCFA6700AB5583 /* Main.storyboard in Resources */,
+				EDEE66071CFE07CF00AB5583 /* CustomTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +170,7 @@
 				EDEE65EB1CFCFA6700AB5583 /* ViewController.m in Sources */,
 				EDEE65E81CFCFA6700AB5583 /* AppDelegate.m in Sources */,
 				EDEE65E51CFCFA6700AB5583 /* main.m in Sources */,
+				EDEE66081CFE07CF00AB5583 /* CustomTableViewCell.m in Sources */,
 				EDEE65FE1CFD0D8500AB5583 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
