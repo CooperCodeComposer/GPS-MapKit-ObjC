@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomTableViewCell.h"
+#import "MapDetailViewController.h"
 
 @interface TableViewController : UITableViewController
 {
-    NSMutableArray *resturantsArray;
-    NSMutableArray *resturantCatArray;
+    NSMutableArray *restaurantsArray;
+    NSMutableArray *restaurantCatArray;
     
-    NSArray *catThaiArray;
-    NSArray *catCafeArray;
-    NSArray *catPizzaArray;
 }
+
+@property (strong, nonatomic) MapDetailViewController *vcDetail;
+
 
 @end

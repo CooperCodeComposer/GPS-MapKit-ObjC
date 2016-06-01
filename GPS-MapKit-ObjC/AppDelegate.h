@@ -15,10 +15,14 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tab;
 @property (strong, nonatomic) UITabBar *tabBar;
+@property (strong, nonatomic) UINavigationController *navForTable;
+@property (strong, nonatomic) UINavigationBar *navBar;
 
-@property (strong, nonatomic) UIViewController *vc1;
+@property (strong, nonatomic) ViewController *vc1;
 @property (strong, nonatomic) TableViewController *vc2;
 
+@property (nonatomic, readwrite) double currentRestaurantLat;
+@property (nonatomic, readwrite) double currentRestaurantLon;
 
 @end
 

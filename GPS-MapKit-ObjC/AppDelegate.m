@@ -25,10 +25,19 @@
     self.vc1 = [[ViewController alloc] initWithNibName:nil bundle:nil];
     self.vc1.title = @"Location Data";
     self.vc1.view.backgroundColor = [UIColor whiteColor];
-//    self.vc1.tabBarItem.image = [UIImage imageNamed:@"trumpet"];
+    self.vc1.tabBarItem.image = [UIImage imageNamed:@"sample-881-globe"];
+    
     
     self.vc2 = [[TableViewController alloc] initWithNibName:nil bundle:nil];
-    self.vc2.title = @"Resturants";
+    self.vc2.title = @"Restaurants";
+    self.vc2.tabBarItem.image = [UIImage imageNamed:@"sample-518-filter"];
+    
+    // setup nav bar for table
+    self.navForTable = [[UINavigationController alloc] initWithRootViewController:self.vc2];
+    
+    // style the nav bar
+    self.navBar = self.navForTable.navigationBar;
+    self.navBar.barStyle = UIBarStyleBlack;
 
     
     // setup tab bar
@@ -38,7 +47,8 @@
     self.tabBar = self.tab.tabBar;
     self.tabBar.barStyle = UIBarStyleBlack;
     
-    self.tab.viewControllers = @[self.vc1, self.vc2];
+    // add vc1 and vc2 (within the navigation bar)
+    self.tab.viewControllers = @[self.vc1, self.navForTable];
     
     self.window.rootViewController = self.tab;
     

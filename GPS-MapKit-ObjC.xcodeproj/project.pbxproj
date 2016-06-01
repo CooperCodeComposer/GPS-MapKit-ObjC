@@ -17,6 +17,10 @@
 		EDEE65FE1CFD0D8500AB5583 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE65FD1CFD0D8500AB5583 /* TableViewController.m */; };
 		EDEE66071CFE07CF00AB5583 /* CustomTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEE66041CFE07CF00AB5583 /* CustomTableCell.xib */; };
 		EDEE66081CFE07CF00AB5583 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE66061CFE07CF00AB5583 /* CustomTableViewCell.m */; };
+		EDEE660B1CFE64F900AB5583 /* MapDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE660A1CFE64F900AB5583 /* MapDetailViewController.m */; };
+		EDEE660D1CFE728A00AB5583 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEE660C1CFE728A00AB5583 /* MapKit.framework */; };
+		EDEE660F1CFEA83700AB5583 /* sample-518-filter.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEE660E1CFEA83700AB5583 /* sample-518-filter.png */; };
+		EDEE66111CFEA84D00AB5583 /* sample-881-globe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEE66101CFEA84D00AB5583 /* sample-881-globe@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,11 @@
 		EDEE66041CFE07CF00AB5583 /* CustomTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableCell.xib; sourceTree = "<group>"; };
 		EDEE66051CFE07CF00AB5583 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		EDEE66061CFE07CF00AB5583 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		EDEE66091CFE64F900AB5583 /* MapDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDetailViewController.h; sourceTree = "<group>"; };
+		EDEE660A1CFE64F900AB5583 /* MapDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDetailViewController.m; sourceTree = "<group>"; };
+		EDEE660C1CFE728A00AB5583 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EDEE660E1CFEA83700AB5583 /* sample-518-filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sample-518-filter.png"; path = "../../../../../xcode Projects/glyphish-free/Free PNG sample icons/sample-518-filter.png"; sourceTree = "<group>"; };
+		EDEE66101CFEA84D00AB5583 /* sample-881-globe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sample-881-globe@2x.png"; path = "../../../../../xcode Projects/glyphish-free/Free PNG sample icons/sample-881-globe@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEE660D1CFE728A00AB5583 /* MapKit.framework in Frameworks */,
 				EDEE65FB1CFCFE6000AB5583 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +63,7 @@
 		EDEE65D71CFCFA6700AB5583 = {
 			isa = PBXGroup;
 			children = (
+				EDEE660C1CFE728A00AB5583 /* MapKit.framework */,
 				EDEE65FA1CFCFE6000AB5583 /* CoreLocation.framework */,
 				EDEE65E21CFCFA6700AB5583 /* GPS-MapKit-ObjC */,
 				EDEE65E11CFCFA6700AB5583 /* Products */,
@@ -79,9 +90,12 @@
 				EDEE66041CFE07CF00AB5583 /* CustomTableCell.xib */,
 				EDEE66051CFE07CF00AB5583 /* CustomTableViewCell.h */,
 				EDEE66061CFE07CF00AB5583 /* CustomTableViewCell.m */,
+				EDEE66091CFE64F900AB5583 /* MapDetailViewController.h */,
+				EDEE660A1CFE64F900AB5583 /* MapDetailViewController.m */,
 				EDEE65EC1CFCFA6700AB5583 /* Main.storyboard */,
 				EDEE65EF1CFCFA6700AB5583 /* Assets.xcassets */,
 				EDEE65F11CFCFA6700AB5583 /* LaunchScreen.storyboard */,
+				EDEE66121CFEA85400AB5583 /* images */,
 				EDEE65F41CFCFA6700AB5583 /* Info.plist */,
 				EDEE65E31CFCFA6700AB5583 /* Supporting Files */,
 			);
@@ -94,6 +108,15 @@
 				EDEE65E41CFCFA6700AB5583 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDEE66121CFEA85400AB5583 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				EDEE660E1CFEA83700AB5583 /* sample-518-filter.png */,
+				EDEE66101CFEA84D00AB5583 /* sample-881-globe@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +176,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEE66111CFEA84D00AB5583 /* sample-881-globe@2x.png in Resources */,
 				EDEE65F31CFCFA6700AB5583 /* LaunchScreen.storyboard in Resources */,
 				EDEE65F01CFCFA6700AB5583 /* Assets.xcassets in Resources */,
+				EDEE660F1CFEA83700AB5583 /* sample-518-filter.png in Resources */,
 				EDEE65EE1CFCFA6700AB5583 /* Main.storyboard in Resources */,
 				EDEE66071CFE07CF00AB5583 /* CustomTableCell.xib in Resources */,
 			);
@@ -167,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEE660B1CFE64F900AB5583 /* MapDetailViewController.m in Sources */,
 				EDEE65EB1CFCFA6700AB5583 /* ViewController.m in Sources */,
 				EDEE65E81CFCFA6700AB5583 /* AppDelegate.m in Sources */,
 				EDEE65E51CFCFA6700AB5583 /* main.m in Sources */,

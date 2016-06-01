@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "AppDelegate.h"
 
 @interface TableViewController ()
 
@@ -14,20 +15,20 @@
 
 @implementation TableViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self downloadJsonGCD];
     
-    resturantCatArray = [NSMutableArray arrayWithObjects:
+    restaurantCatArray = [NSMutableArray arrayWithObjects:
                          @"Thai", @"Pizza", @"Cafe", nil];
     
-    [resturantCatArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    
-  //  NSLog(@"%@", resturantCatArray);
+    [restaurantCatArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
     
-    
+
 }
 
 
@@ -39,14 +40,14 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        NSString *urlString = @"https://s3-us-west-2.amazonaws.com/uclaiosclass/resturants.json";
+        NSString *urlString = @"https://s3-us-west-2.amazonaws.com/uclaiosclass/restaurants.json";
         NSURL *url = [NSURL URLWithString:urlString];
         
         NSData *jsonData = [NSData dataWithContentsOfURL:url];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-             resturantsArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
+             restaurantsArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
             
             [self.tableView reloadData]; // need to reload table data
             
@@ -64,22 +65,22 @@
 #pragma mark - Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [resturantCatArray count];
+    return [restaurantCatArray count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [resturantCatArray objectAtIndex:section];
+    return [restaurantCatArray objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     // gets category title from array using section as index
-    NSString *sectionCatTitle = [resturantCatArray objectAtIndex:section];
+    NSString *sectionCatTitle = [restaurantCatArray objectAtIndex:section];
     
     // use category name to make array of matching resturants
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@", sectionCatTitle ];
-    NSArray *filteredArray  = [resturantsArray filteredArrayUsingPredicate:predicate];
+    NSArray *filteredArray  = [restaurantsArray filteredArrayUsingPredicate:predicate];
     
     return [filteredArray count];
 }
@@ -96,19 +97,19 @@
     }
     
     // gets category title from array using section as index
-    NSString *sectionCatTitle = [resturantCatArray objectAtIndex:indexPath.section];
+    NSString *sectionCatTitle = [restaurantCatArray objectAtIndex:indexPath.section];
     
-    // use category name to make array of matching resturants
+    // use category name to make array of matching restaurants
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@", sectionCatTitle ];
-    NSArray *filteredArray  = [resturantsArray filteredArrayUsingPredicate:predicate];
+    NSArray *filteredArray  = [restaurantsArray filteredArrayUsingPredicate:predicate];
     
     // make a dictionary of just object at index path
-    NSDictionary *resturantDict = [filteredArray objectAtIndex:indexPath.row];
+    NSDictionary *restaurantDict = [filteredArray objectAtIndex:indexPath.row];
     
     // label the cells using matching key values
-    cell.nameLabel.text = [resturantDict objectForKey:@"name"];
-    cell.categoryLabel.text = [resturantDict objectForKey:@"category"];
-    cell.priceLabel.text = [resturantDict objectForKey:@"price"];
+    cell.nameLabel.text = [restaurantDict objectForKey:@"name"];
+    cell.categoryLabel.text = [restaurantDict objectForKey:@"category"];
+    cell.priceLabel.text = [restaurantDict objectForKey:@"price"];
     
     return cell;
     
@@ -117,6 +118,34 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     return 70;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // gets category title from array using section as index
+    NSString *sectionCatTitle = [restaurantCatArray objectAtIndex:indexPath.section];
+    
+    // use category name to make array of matching restaurants
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@", sectionCatTitle ];
+    NSArray *filteredArray  = [restaurantsArray filteredArrayUsingPredicate:predicate];
+    
+    // make a dictionary of just object at index path row
+    NSDictionary *restaurantDict = [filteredArray objectAtIndex:indexPath.row];
+    
+    // update properties in the app delegate
+    
+    AppDelegate *theAppDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
+    
+    theAppDelegate.currentRestaurantLat = [[restaurantDict objectForKey:@"yLoc"] doubleValue]; // string to double
+    theAppDelegate.currentRestaurantLon = [[restaurantDict objectForKey:@"xLoc"] doubleValue]; // string to double    
+    
+    NSLog(@"Lon = %f", theAppDelegate.currentRestaurantLon);
+    NSLog(@"Lat = %f", theAppDelegate.currentRestaurantLat);
+    
+    
+    self.vcDetail = [[MapDetailViewController alloc] initWithNibName:nil bundle:nil];
+    
+    [self.navigationController pushViewController:self.vcDetail animated:YES];
 }
 
 

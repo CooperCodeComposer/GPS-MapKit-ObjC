@@ -66,8 +66,8 @@
     
     // update text fields
     
-    xLocLabel.text = [NSString stringWithFormat: @"Latitude = %.6f", lat];
-    yLocLabel.text = [NSString stringWithFormat: @"Latitude = %.6f", lon];
+    xLocLabel.text = [NSString stringWithFormat: @"Longitude = %.6f", lon];
+    yLocLabel.text = [NSString stringWithFormat: @"Latitude = %.6f", lat];
     
         
 }
