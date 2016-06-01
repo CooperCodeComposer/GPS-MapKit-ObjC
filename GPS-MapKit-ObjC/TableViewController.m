@@ -19,19 +19,17 @@
     
     [self downloadJsonGCD];
     
+    resturantCatArray = [NSMutableArray arrayWithObjects:
+                         @"Thai", @"Pizza", @"Cafe", nil];
+    
+    [resturantCatArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+  //  NSLog(@"%@", resturantCatArray);
     
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Data setup methods
 -(void)downloadJsonGCD
@@ -50,9 +48,9 @@
             
              resturantsArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
             
-         //   [self.tableView reloadData]; // need to reload table data
+            [self.tableView reloadData]; // need to reload table data
             
-            NSLog(@"%@", resturantsArray);
+        //    NSLog(@"%@", resturantsArray);
             
             // stop the pinwheel
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -63,25 +61,64 @@
     
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return [resturantCatArray count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [resturantCatArray objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [resturantsArray count];
+    
+    // gets category title from array using section as index
+    NSString *sectionCatTitle = [resturantCatArray objectAtIndex:section];
+    
+    // use category name to make array of matching resturants
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@", sectionCatTitle ];
+    NSArray *filteredArray  = [resturantsArray filteredArrayUsingPredicate:predicate];
+    
+    return [filteredArray count];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    NSString *customTableIdentifier = @"CustomTableCell";
     
-    // Configure the cell...
+    CustomTableViewCell *cell = (CustomTableViewCell*)[tableView dequeueReusableCellWithIdentifier:customTableIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    // gets category title from array using section as index
+    NSString *sectionCatTitle = [resturantCatArray objectAtIndex:indexPath.section];
+    
+    // use category name to make array of matching resturants
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@", sectionCatTitle ];
+    NSArray *filteredArray  = [resturantsArray filteredArrayUsingPredicate:predicate];
+    
+    // make a dictionary of just object at index path
+    NSDictionary *resturantDict = [filteredArray objectAtIndex:indexPath.row];
+    
+    // label the cells using matching key values
+    cell.nameLabel.text = [resturantDict objectForKey:@"name"];
+    cell.categoryLabel.text = [resturantDict objectForKey:@"category"];
+    cell.priceLabel.text = [resturantDict objectForKey:@"price"];
     
     return cell;
+    
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return 70;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

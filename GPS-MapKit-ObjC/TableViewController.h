@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomTableViewCell.h"
 
 @interface TableViewController : UITableViewController
 {
     NSMutableArray *resturantsArray;
+    NSMutableArray *resturantCatArray;
+    
+    NSArray *catThaiArray;
+    NSArray *catCafeArray;
+    NSArray *catPizzaArray;
 }
 
 @end

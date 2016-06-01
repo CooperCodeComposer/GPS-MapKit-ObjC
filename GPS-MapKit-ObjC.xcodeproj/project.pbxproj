@@ -70,15 +70,15 @@
 		EDEE65E21CFCFA6700AB5583 /* GPS-MapKit-ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				EDEE66041CFE07CF00AB5583 /* CustomTableCell.xib */,
-				EDEE66051CFE07CF00AB5583 /* CustomTableViewCell.h */,
-				EDEE66061CFE07CF00AB5583 /* CustomTableViewCell.m */,
 				EDEE65E61CFCFA6700AB5583 /* AppDelegate.h */,
 				EDEE65E71CFCFA6700AB5583 /* AppDelegate.m */,
 				EDEE65E91CFCFA6700AB5583 /* ViewController.h */,
 				EDEE65EA1CFCFA6700AB5583 /* ViewController.m */,
 				EDEE65FC1CFD0D8500AB5583 /* TableViewController.h */,
 				EDEE65FD1CFD0D8500AB5583 /* TableViewController.m */,
+				EDEE66041CFE07CF00AB5583 /* CustomTableCell.xib */,
+				EDEE66051CFE07CF00AB5583 /* CustomTableViewCell.h */,
+				EDEE66061CFE07CF00AB5583 /* CustomTableViewCell.m */,
 				EDEE65EC1CFCFA6700AB5583 /* Main.storyboard */,
 				EDEE65EF1CFCFA6700AB5583 /* Assets.xcassets */,
 				EDEE65F11CFCFA6700AB5583 /* LaunchScreen.storyboard */,
