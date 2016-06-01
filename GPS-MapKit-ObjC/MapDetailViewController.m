@@ -27,12 +27,21 @@
     
     [self.view addSubview:self.mapView];
     
-    // set the zoom scale
+    [self setZoomScale];
     
+    [self placePinForRestaurant];
+}
+
+-(void)setZoomScale
+{   
     MKUserLocation *userLocation = self.mapView.userLocation;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (                               userLocation.location.coordinate, 20000, 20000);
     [self.mapView setRegion:region animated:NO];
     
+}
+
+-(void)placePinForRestaurant
+{
     // get variables from AppDelegate
     AppDelegate *theAppDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
     
@@ -42,18 +51,15 @@
     NSLog(@"Lat float string = %f", lat);
     NSLog(@"Lon float string = %f", lon);
     
-    
-    
     // place the pin for the current resturant
-    
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(lat, lon);
-    
     
     // Place a single pin
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     [annotation setCoordinate:coord];
     [annotation setTitle:@"Restaurant"]; //You can set the subtitle too
     [self.mapView addAnnotation:annotation];
+    
 }
 
 
