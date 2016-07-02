@@ -9,7 +9,7 @@ App demo using CoreLocation + MapKit + parsing JSON from AWS
 + uses CoreLocation to find and display users current location and compass heading 
 + view controllers created programmatically
 
-![Alt text](/MapKitSS.PMG?raw=true "")
+![Alt text](/MapKitSS.PNG?raw=true "")
 
 # Author
 Alistair Cooper
